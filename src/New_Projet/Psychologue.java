@@ -1,61 +1,43 @@
 package New_Projet;
 
-import java.util.Scanner;
+public class Psychologue extends Personne {
+	private static Psychologue[] listePsy = new Psychologue[100];
+	private static int nbPsy=0;
 
-public class Psychologue {
-	private String nom;
-	private String prenom;
-	private String numTel;
-	private String Mail;
-	private static Scanner input = new Scanner(System.in);
-	
-	
 	public Psychologue(String nom, String prenom, String numTel, String Mail) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.numTel = numTel;
-		this.Mail = Mail;
+		super(nom, prenom, numTel, Mail);
 	}
 	
-	public String getNom() {
-		return nom;
+	public static Psychologue[] getListePsy() {
+		return listePsy;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public static void afficher(String text) {
-		System.out.println(text);
+	public static void ajouterPsy(Psychologue psy) {
+		listePsy[nbPsy] = psy;
+		nbPsy++;
 	}
 	
-	public static String ajouterNom() {
-		String nom;
-		afficher("nom : ");
-		nom =input.next();
-		return nom;
+	public static void afficherListePsy() {
+		String texte; 				
+		if (nbPsy<=1) {
+			texte = "Liste de Psychologue :\n\n";
+		} else {
+			texte = "Liste des Psychologues :\n\n";
+		}
+		for (int i = 0; i < nbPsy; i++) {
+			Psychologue psy = listePsy[i];
+			texte+= "- "+psy.getNom()+", "+psy.getPrenom()+", "+psy.getNumTel()+", "+psy.getMail()+"\n";
+		}
+		Personne.afficher(texte);
+		Personne.afficher("\n--------------------------------\n\n");
+				
 	}
-	
-	public static String ajouterPrenom() {
-		String prenom;
-		afficher("prenom : ");
-		prenom =input.next();
-		return prenom;
-	}
-	
-	public static String ajouterNumTel() {
-		String num;
-		afficher("numero : ");
-		num =input.next();
-		return num;
-	}
-	
-	public static String ajouterMail() {
-		String mail;
-		afficher("mail : ");
-		mail =input.next();
-		return mail;
-	
+	public static void afficherNbrPsychologue() {
+		if (nbPsy<=1) {
+			System.out.println("Nombre de Psychologue : "+nbPsy+ " \n");
+		} else {
+			System.out.println("Nombre de Psychologue(s) : "+nbPsy+ " \n");
+		} 
+		
 	}
 }
