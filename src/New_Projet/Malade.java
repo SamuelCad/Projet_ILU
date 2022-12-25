@@ -41,7 +41,7 @@ public class Malade {
 	
 	private static String entrerNom() {
 		String nom;
-		Personne.afficher("Entrer le nom du malade : ");
+		System.out.print("Entrer le nom du malade : ");
 		nom =input.next();
 		return nom;
 	}
@@ -51,52 +51,51 @@ public class Malade {
 		int exist=0;
 		String[] exempleLien  = {"parent-enfant", "épouse-époux", "soeur-frère", "autre"};
 		
-		Personne.afficher("Choisir le lien de parenté que vous avez avec le malade dans la liste suivante: parent-enfant, épouse-époux, soeur-frère, autre.\n");		
+		System.out.println("Choisir le lien de parenté que vous avez avec le malade dans la liste suivante: parent-enfant, épouse-époux, soeur-frère, autre.");		
 		lien=input.next();
 		exist=recherche(exempleLien, lien);
 		
 		while (exist==0) {
-			Personne.afficher("Erreur, "+lien+" n'est pas dans la liste proposer, veuilez réessayez \n");
+			System.out.println("Erreur, "+lien+" n'est pas dans la liste proposer, veuilez réessayez ");
 			lien=input.next();
 			exist=recherche(exempleLien, lien);
 		}
 		if (lien.equals("autre")) {
-			Personne.afficher("Donner le lien de parenté\n");
+			System.out.println("Donner le lien de parenté");
 			lien=input.next();
 		}
+		
 		return lien;
 	}
 	
 	private static String entrerTypeHeber() {
 		String typeHeber;
 		int exist=0;
-		String[] exempleTypeHeber  = {"institution", "famille d'accueil", "domicile"};
+		String[] exempleTypeHeber  = {"institution", "famille_d'accueil", "domicile"};
 		
-		Personne.afficher("Choisir le type d'hébergement du malade dansle liste suivante: "
-				+ "institution, famille d'accueil, domicile\n");
+		System.out.println("Choisir le type d'hébergement du malade dansle liste suivante: "
+				+ "institution, famille_d'accueil, domicile");
 		typeHeber=input.next();
 		exist=recherche(exempleTypeHeber, typeHeber);
 
 		while (exist==0) {
-			Personne.afficher("Erreur, "+typeHeber+" n'est pas dans la liste proposer, veuilez réessayez \n");
+			System.out.println("Erreur, "+typeHeber+" n'est pas dans la liste proposer, veuilez réessayez ");
 			typeHeber=input.next();
 			exist=recherche(exempleTypeHeber, typeHeber);
 		}
 		return typeHeber;
 	}
 
-	public static String afficherMalade(Malade malade) {
+	public static String decomposeMalade(Malade malade) {
 		String texte= malade.getNom()+", "+malade.getLienParente()+", "+malade.getTypeHebergement();
 					
 		return texte;
 	}
-	
+		
 	public static Malade creationMalade() {
 		Malade malade = new Malade(entrerNom(), entrerLien(), entrerTypeHeber());
-		return malade;
-
-		
-
-}
+		return malade;		
+	}
+	
 }
 

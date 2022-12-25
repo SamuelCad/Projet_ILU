@@ -33,38 +33,39 @@ public class Personne {
 	public String getMail() {
 		return Mail;
 	}
-
-	public static void afficher(String text) {
-		System.out.print(text);
-	}
 	
 	public static String ajouterNom() {
 		String nom;
-		afficher("Nom : ");
+		System.out.print("Nom : ");
 		nom =input.next();
 		return nom;
 	}
 	
 	public static String ajouterPrenom() {
 		String prenom;
-		afficher("Prenom : ");
+		System.out.print("Prenom : ");
 		prenom =input.next();
 		return prenom;
 	}
 	
 	public static String ajouterNumTel() {
 		String num;
-		afficher("Numero : ");
+		System.out.print("Numero : ");
 		num =input.next();
 		return num;
 	}
 	
 	public static String ajouterMail() {
 		String mail;
-		afficher("Mail : ");
+		System.out.print("Mail : ");
 		mail =input.next();
-		afficher("\n");
+		System.out.print("\n");
 		return mail;
 	
 	}
+	
+//	private String decompose() {
+//		String texte="- "+this.getNom()+", "+this.getPrenom()+", "+this.getNumTel()+", "+this.getMail()+"\n";
+//		return texte;
+//	}
 }

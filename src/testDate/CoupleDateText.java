@@ -1,4 +1,4 @@
-package test;
+package testDate;
 
 public class CoupleDateText {
 	private String date;

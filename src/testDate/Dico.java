@@ -1,4 +1,4 @@
-package test;
+package testDate;
 
 public class Dico {
 	private int nbCoupleDateText=0;
