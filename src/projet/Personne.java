@@ -1,4 +1,4 @@
-package New_Projet;
+package projet;
 
 import java.util.Scanner;
 
@@ -34,16 +34,6 @@ public class Personne {
 		return Mail;
 	}
 	
-	public static String ajouterNom() {
-		
-		String nom, Class;
-//		Class = .getClass().getSimpleName();
-//		System.out.println("Création "+Class);
-		System.out.print("Nom : ");
-		nom =input.next();
-		return nom;
-	}
-	
 	public static String ajouterPrenom() {
 		String prenom;
 		System.out.print("Prenom : ");
@@ -66,9 +56,4 @@ public class Personne {
 		return mail;
 	
 	}
-	
-//	private String decompose() {
-//		String texte="- "+this.getNom()+", "+this.getPrenom()+", "+this.getNumTel()+", "+this.getMail()+"\n";
-//		return texte;
-//	}
 }

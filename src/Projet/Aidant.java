@@ -1,35 +1,66 @@
-package Projet;
+package projet;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
-public class Aidant extends Psychologue {
-	private String[] malade;
+public class Aidant extends Personne {
 	
-	public Aidant(String nom, String prenom, String numTel, String adresseMail, String[] malade) {
-		super(nom, prenom, numTel, adresseMail);
-		this.malade=malade;
+	private String situation;
+	private Malade listeMalade;
+	private static Scanner input = new Scanner(System.in);
+
+	
+	public Aidant(String nom, String prenom, String numTel, String Mail, String situation, Malade listeMalade) {
+		super(nom, prenom, numTel, Mail);
+		this.listeMalade = listeMalade;
+		this.situation = situation;
 	}
 	
-	public String[] getMalade() {
-		return malade;
+	public static String ajouterNom() {
+		String nom;
+		System.out.print("Création d'un(e) Aidant(e) :\n" +
+					"Nom : ");
+		nom =input.next();
+		return nom;
 	}
 	
-	private static Aidant creationAidant() {
-		afficher("Création d'un Aidant");
-		return new Aidant(entrerNom(), entrerPrenom(), entrerNum(), entrerMail(), Malade.creationMalade());
+	public Malade getListeMalade() {
+		return listeMalade;
+	}
+
+	public String getSituation() {
+		return situation;
+	}
+	
+	public static String entrerSituation() {
+		String sitution;
+		int exist=0;
+		String[] exempleSituation  = {"en_activité", "sans_emploi", "retraité","retraitée"};
 		
-//		String[] information =  {entrerNom(),entrerPrenom(), entrerNum(),entrerMail(),Malade.creationMalade()};
-//		Aidant aidant = new Aidant(entrerNom(), entrerPrenom(), entrerNum(), entrerMail(), Malade.creationMalade());
-//		return Arrays.toString(information) ;
-//		return aidant;
+		System.out.println("Choisir la situation de l'aidant dans la liste suivante: en_activité, sans_emploi, retraité(e), autre.");		
+		sitution=input.next();
+		exist=recherche(exempleSituation, sitution);
+		
+		while (exist==0) {
+			System.out.println("Erreur, "+sitution+" n'est pas dans la liste proposée, veuillez réessayer ");
+			sitution=input.next();
+			exist=recherche(exempleSituation, sitution);
+		}
+		if (sitution.equals("autre")) {
+			System.out.println("Donner la situation");
+			sitution=input.next();
+		}
+		
+		return sitution;
 	}
 	
-	public static void main(String[] args) {
-		Aidant a = creationAidant();
-		String liste = String.join(",", a.getMalade());
-//		String liste = Arrays.asList(a.getMalade()).toString();
-//		afficher(liste);
-		afficher(liste);
+	public static int recherche(String[] liste, String lien) {
+		int exist=0;
+		for (int i=0; i < liste.length; i++)
+	    {
+	      if(liste[i].equals(lien)){
+	        exist++;
+	      }
+	    }
+	    return exist;
 	}
-
 }

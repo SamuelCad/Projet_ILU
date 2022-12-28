@@ -1,28 +1,20 @@
-package Projet;
+package projet;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
-public class Benevole extends Psychologue {
+public class Benevole extends Personne {
 	
+	private static Scanner input = new Scanner(System.in);
 	
-	public Benevole(String nom, String prenom, String numTel, String adresseMail) {
-		super(nom, prenom, numTel, adresseMail);
+	public Benevole(String nom, String prenom, String numTel, String Mail) {
+		super(nom, prenom, numTel, Mail);
 	}
 	
-	public static Benevole creationBenevole() {
-		afficher("Création d'un Bénévole");
-//		String[] information =  {entrerNom(),entrerPrenom(), entrerNum(),entrerMail()};
-		Benevole benevole = new Benevole(entrerNom(), entrerPrenom(), entrerNum(), entrerMail());
-
-//		return Arrays.toString(information) ;
-		return benevole;
+	public static String ajouterNom() {
+		String nom;
+		System.out.print("Création d'un(e) Bénévole :\n" +
+					"Nom : ");
+		nom =input.next();
+		return nom;
 	}
-	public static void main(String[] args) {
-		Benevole a= creationBenevole();
-		afficher(a.getNom());
-		afficher(a.getPrenom());
-		afficher(a.getNumTel());
-		afficher(a.getAdresseMail());
-	}
-
 }
