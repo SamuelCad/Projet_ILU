@@ -9,6 +9,7 @@ import New_Projet.Malade;
 public class ListeValTest {
 	private static String[] listeNom = {"Nicolas","Lea","Theo", "Thomas", "Manon", "Marie", "Kevin", "Alexandre", "Camille", "Melissa", "Maxime", "Laura", "Lucas", "Alexis"};
 	private static String[] listePrenom = {"Bonomelli", "Bonometti", "Bonomo", "Borghese", "Boschetti", "Bosco", "Bosseda", "Bosselli", "Bossello", "Bossi", "Bosso", "Bottari", "Brama", "Brigante", "Briganti"};
+	private static String[] listeSituation = {"en_activité", "sans_emploi", "retraité","retraitée"};
 	private static String[] listeTypeHebergement = {"institution", "famille_d'accueil", "domicile"};
 	private static String[] listeTypeLien = {"parent-enfant", "épouse-époux", "soeur-frère"};
 
@@ -33,6 +34,12 @@ public class ListeValTest {
 		return numero;
 	}	
 	
+	public static String randomSituation() {
+		Random random = new Random();
+		String situation = 	listeSituation[random.nextInt(listeSituation.length)];
+		return situation;
+	}
+	
 	public static Malade simulationMalade() {
 		Random random = new Random();
 		String nom=listeNom[random.nextInt(listeNom.length)];
@@ -44,16 +51,18 @@ public class ListeValTest {
 	}
 	
 	
-	public static void simulationAidant(GroupeParole groupe) {
-		String nom, prenom, mail, numero; 
+	public static void simulationAidant(GroupeParole groupe, int nbrAidant) {
+		String nom, prenom, mail, numero, situation; 
 		Malade malade;
-		for (int i=0; i<10;i++) {
+		for (int i=0; i<nbrAidant;i++) {
 			nom=randomNom();
 			prenom=randomPrenom();
 			mail= nom.toLowerCase()+"."+prenom.toLowerCase()+"@gmail.com";
 			numero=randomNumero();
+			situation= randomSituation();
 			malade=simulationMalade();
-			Aidant aidant = new Aidant(nom, prenom, mail, numero, malade);
+			
+			Aidant aidant = new Aidant(nom, prenom, mail, numero, situation, malade);
 			groupe.ajouterAidant(aidant);
 		}
 	}

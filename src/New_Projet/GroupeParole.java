@@ -51,18 +51,26 @@ public class GroupeParole {
 	}
 
 	private String decompose(Personne personne) {
-		String texte="- "+personne.getNom()+", "+personne.getPrenom()+", "+personne.getNumTel()+", "+personne.getMail()+"\n";
+		String texte=" Nom : "+personne.getNom()+
+				"\n Prénom : "+personne.getPrenom()+
+				"\n Téléphone : "+personne.getNumTel()+
+				"\n Mail : "+personne.getMail()+"\n";
 		return texte;
 	}
 	
 	private String decomposeAidant(Aidant aidant) {
-		String texte = "- "+aidant.getNom()+", "+aidant.getPrenom()+", "+aidant.getNumTel()+", "+aidant.getMail()+" : \n"
+		String texte = " Nom : "+aidant.getNom()+
+				"\n Prénom : "+aidant.getPrenom()+
+				"\n Téléphone : "+aidant.getNumTel()+
+				"\n Mail : "+aidant.getMail()+
+				"\n Situation : "+ aidant.getSituation()+
+				"\n\n"
 				+ Malade.decomposeMalade(aidant.getListeMalade())+"\n\n";
 		return texte;
 	}
 	
 	private void afficherListePsy(Psychologue[] listePsychologue) {
-		String texte = "Psychologues :\n"; 				
+		String texte = "Psychologue :\n"; 				
 		for (int i = 0; i < nbPsy; i++) {
 			Psychologue psy = listePsychologue[i];
 			texte+= decompose(psy);;
@@ -72,7 +80,7 @@ public class GroupeParole {
 	}
 	
 	private void afficherListeBenevole(Benevole[] listeBenevoles) {
-		String texte = "\nBenevoles :\n";
+		String texte = "\nBénévole :\n";
 		
 		for (int i = 0; i < nbBenevole; i++) {
 			Benevole benevole = listeBenevoles[i];
@@ -82,7 +90,7 @@ public class GroupeParole {
 	}
 	
 	private void afficherIntervenants() {
-		System.out.println("Intervenants :");
+		System.out.println("Intervenants (équipe binôme) :");
 		afficherListePsy(getListePsychologue());
 		afficherListeBenevole(getListeBenevole());		
 	}
@@ -95,7 +103,7 @@ public class GroupeParole {
 			texte+= decomposeAidant(aidant) ;
 		}
 		System.out.print(texte);
-		System.out.println("\n--------------------------------\n");
+//		System.out.println("\n--------------------------------\n");
 				
 	}
 	
@@ -118,7 +126,7 @@ public class GroupeParole {
 	
 	public void afficherGroupe() {
 		System.out.println("\n--------------------------------\n");
-		System.out.println("Groupe de Parole de "+ lieu );
+		System.out.println("Groupe de Parole de/du "+ lieu );
 		System.out.println("Date de rencontre : "+ jourRencontre+"\n" );
 		
 		afficherIntervenants();

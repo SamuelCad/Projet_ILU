@@ -35,7 +35,10 @@ public class Personne {
 	}
 	
 	public static String ajouterNom() {
-		String nom;
+		
+		String nom, Class;
+//		Class = .getClass().getSimpleName();
+//		System.out.println("Création "+Class);
 		System.out.print("Nom : ");
 		nom =input.next();
 		return nom;

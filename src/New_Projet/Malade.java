@@ -51,12 +51,12 @@ public class Malade {
 		int exist=0;
 		String[] exempleLien  = {"parent-enfant", "épouse-époux", "soeur-frère", "autre"};
 		
-		System.out.println("Choisir le lien de parenté que vous avez avec le malade dans la liste suivante: parent-enfant, épouse-époux, soeur-frère, autre.");		
+		System.out.println("Choisir le lien de parenté de l'aidant avec le malade dans la liste suivante: parent-enfant, épouse-époux, soeur-frère, autre.");		
 		lien=input.next();
 		exist=recherche(exempleLien, lien);
 		
 		while (exist==0) {
-			System.out.println("Erreur, "+lien+" n'est pas dans la liste proposer, veuilez réessayez ");
+			System.out.println("Erreur, "+lien+" n'est pas dans la liste proposée, veuillez réessayer ");
 			lien=input.next();
 			exist=recherche(exempleLien, lien);
 		}
@@ -87,7 +87,8 @@ public class Malade {
 	}
 
 	public static String decomposeMalade(Malade malade) {
-		String texte= malade.getNom()+", "+malade.getLienParente()+", "+malade.getTypeHebergement();
+		String texte= " Nom du malade : "+malade.getNom()+"\n Lien de parenté avec l'aidant : "+malade.getLienParente()
+		+"\n Type d'hébergement : "+malade.getTypeHebergement();
 					
 		return texte;
 	}
