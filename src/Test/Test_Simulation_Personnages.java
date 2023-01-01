@@ -167,6 +167,22 @@ public class Test_Simulation_Personnages {
 		trinite.afficherGroupe();
 		francois.afficherGroupe();
 		lorrain.afficherGroupe();
+		
+		/*
+		 * Affichage du nombre de malade qui ont le même type d'hébergement
+		 */
+		gondeau.rechercheNbrHebergement("institution");
+		trinite.rechercheNbrHebergement("famille_d'accueil");
+		francois.rechercheNbrHebergement("domicile");
+		lorrain.rechercheNbrHebergement("institution");
+		
+		/*
+		 * Affichage du nombre de personne qui ont le même lien de parenté avec leurs malades
+		 */
+		gondeau.rechercheNbrTypeLien("parent-enfant");
+		trinite.rechercheNbrTypeLien("épouse-époux");
+		francois.rechercheNbrTypeLien("soeur-frère");
+		lorrain.rechercheNbrTypeLien("parent-enfant");
 	}
 
 }

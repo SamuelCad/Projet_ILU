@@ -177,6 +177,38 @@ public class GroupeParole {
 		afficherListeAidant(listeAidant);
 
 	}
-
+	
+	/**
+	 * Affiche le nombre de malade qui ont le même type d'hébergement
+	 * 
+	 * @param typeHeber
+	 */
+	public void rechercheNbrHebergement(String typeHeber) {
+		int nbrHerbe=0;
+		
+		for (int i = 0; i < nbAidant; i++) {
+			Aidant aidant = listeAidant[i];
+			if (aidant.getListeMalade().getTypeHebergement()==typeHeber) {
+				nbrHerbe++;
+			}
+		}
+		System.out.println("Dans le groupe de "+lieu +", il y a "+nbrHerbe+" de malade qui sont en/à "+typeHeber+".");
+	}
+	
+	/**
+	 * Affiche le nombre de personne qui ont le même lien de parenté avec leurs malades
+	 * 
+	 * @param lienParente
+	 */
+	public void rechercheNbrTypeLien(String lienParente) {
+		int nbrLien = 0;
+		for (int i = 0; i < nbAidant; i++) {
+			Aidant aidant = listeAidant[i];
+			if (aidant.getListeMalade().getLienParente()==lienParente) {
+				nbrLien++;
+			}
+		}
+		System.out.println("Dans le groupe "+lieu+" il y a "+nbrLien+" qui ont un lien de parenté "+lienParente+" avec le malade.");
+	}
 	
 }
