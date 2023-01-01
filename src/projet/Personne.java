@@ -33,7 +33,11 @@ public class Personne {
 	public String getMail() {
 		return Mail;
 	}
-	
+	/**
+	 * Retourne le prénom saisi par l'utilisateur
+	 * 
+	 * @return String
+	 */
 	public static String ajouterPrenom() {
 		String prenom;
 		System.out.print("Prenom : ");
@@ -41,13 +45,23 @@ public class Personne {
 		return prenom;
 	}
 	
+	/**
+	 * Retourne le téléphone saisi par l'utilisateur
+	 * 
+	 * @return String
+	 */
 	public static String ajouterNumTel() {
-		String num;
-		System.out.print("Numero : ");
-		num =input.next();
-		return num;
+		String tel;
+		System.out.print("Téléphone : ");
+		tel =input.next();
+		return tel;
 	}
 	
+	/**
+	 * Retourne le mail saisi par l'utilisateur
+	 * 
+	 * @return String
+	 */
 	public static String ajouterMail() {
 		String mail;
 		System.out.print("Mail : ");

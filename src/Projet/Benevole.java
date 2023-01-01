@@ -10,6 +10,11 @@ public class Benevole extends Personne {
 		super(nom, prenom, numTel, Mail);
 	}
 	
+	/**
+	 * Retourne le nom saisi par l'utilisateur
+	 * 
+	 * @return String
+	 */
 	public static String ajouterNom() {
 		String nom;
 		System.out.print("Création d'un(e) Bénévole :\n" +

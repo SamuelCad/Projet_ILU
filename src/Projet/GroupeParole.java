@@ -38,6 +38,18 @@ public class GroupeParole {
 		return listeAidant;
 	}
 
+	/**
+	 * Retourne les attributs de la classe Personne sous forme de string.
+	 *
+	 * Exemple :
+	 * Nom : .....
+	 * Prénom : .....
+	 * Téléphone : .....
+	 * Mail : .....
+	 *
+	 * @param personne
+	 * @return String
+	 */
 	private String decompose(Personne personne) {
 		String texte=" Nom : "+personne.getNom()+
 				"\n Prénom : "+personne.getPrenom()+
@@ -45,6 +57,21 @@ public class GroupeParole {
 				"\n Mail : "+personne.getMail()+"\n";
 		return texte;
 	}
+	
+	/**
+	 * Retourne les attributs de la classe Aidant sous forme de string
+	 *
+	 * Exemple :
+	 * Nom : .....
+	 * Prénom : .....
+	 * Téléphone : .....
+	 * Mail : .....
+	 * Situation : .....
+	 * decomposeMalade(aidant.getListeMalade())
+	 *
+	 * @param aidant
+	 * @return String
+	 */
 	
 	private String decomposeAidant(Aidant aidant) {
 		String texte = " Nom : "+aidant.getNom()+
@@ -58,6 +85,11 @@ public class GroupeParole {
 		return texte;
 	}
 	
+	/**
+	 * Affiche la liste des Psychologues
+	 * 
+	 * @param listePsychologue
+	 */
 	private void afficherListePsy(Psychologue[] listePsychologue) {
 		String texte = "Psychologue :\n"; 				
 		for (int i = 0; i < nbPsy; i++) {
@@ -65,9 +97,13 @@ public class GroupeParole {
 			texte+= decompose(psy);;
 		}
 		System.out.print(texte);
-				
 	}
 	
+	/**
+	 * Affiche la liste des Bénévoles
+	 * 
+	 * @param listeBenevoles
+	 */
 	private void afficherListeBenevole(Benevole[] listeBenevoles) {
 		String texte = "\nBénévole :\n";
 		
@@ -78,12 +114,19 @@ public class GroupeParole {
 		System.out.println(texte);
 	}
 	
+	/**
+	 * Affiche les Intervenants : Psychologues et Bénévoles
+	 */
 	private void afficherIntervenants() {
 		System.out.println("Intervenants (équipe binôme) :");
 		afficherListePsy(getListePsychologue());
 		afficherListeBenevole(getListeBenevole());		
 	}
 	
+	/**
+	 * Affiche la liste des Aidants
+	 * @param listeAidant
+	 */
 	private void afficherListeAidant(Aidant[] listeAidant) {
 		String texte = "Liste des Aidants :\n";
 		
@@ -91,20 +134,33 @@ public class GroupeParole {
 			Aidant aidant = listeAidant[i];
 			texte+= decomposeAidant(aidant) + "**********\n";
 		}
-		System.out.print(texte);
-				
+		System.out.print(texte);		
 	}
 	
+	/**
+	 * Ajoute le Psychologue à la liste des Psychologues
+	 * @param psy
+	 */
 	public void ajouterPsy(Psychologue psy) {
 		listePsychologue[nbPsy] = psy;
 		nbPsy++;
 	}
 	
+	/**
+	 * Ajoute le Bénévole à la liste des Bénévoles
+	 * 
+	 * @param benevole
+	 */
 	public void ajouterBenevole(Benevole benevole) {
 		listeBenevole[nbBenevole] = benevole;
 		nbBenevole++;
 	}
-
+	
+	/**
+	 * Ajoute l'Aidant à la liste des Aidants
+	 * 
+	 * @param aidant
+	 */
 	public void ajouterAidant(Aidant aidant) {
 		listeAidant[nbAidant] = aidant;
 		nbAidant++;

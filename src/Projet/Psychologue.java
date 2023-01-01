@@ -10,10 +10,15 @@ public class Psychologue extends Personne {
 		super(nom, prenom, numTel, Mail);
 	}
 	
+	/**
+	 * Returne le nom saisi par l'utilisateur
+	 * 
+	 * @return String
+	 */
 	public static String ajouterNom() {
 		String nom;
 		System.out.print("Création d'un(e) Psychologue :\n" + 
-					"Nom : ");
+		"Nom : ");
 		nom =input.next();
 		return nom;
 	}

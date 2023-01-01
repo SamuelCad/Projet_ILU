@@ -15,14 +15,6 @@ public class Aidant extends Personne {
 		this.situation = situation;
 	}
 	
-	public static String ajouterNom() {
-		String nom;
-		System.out.print("Création d'un(e) Aidant(e) :\n" +
-					"Nom : ");
-		nom =input.next();
-		return nom;
-	}
-	
 	public Malade getListeMalade() {
 		return listeMalade;
 	}
@@ -31,6 +23,24 @@ public class Aidant extends Personne {
 		return situation;
 	}
 	
+	/**
+	 * Retourne le nom saisi par l'utilisateur
+	 * 
+	 * @return String
+	 */
+	public static String ajouterNom() {
+		String nom;
+		System.out.print("Création d'un(e) Aidant(e) :\n" +
+					"Nom : ");
+		nom =input.next();
+		return nom;
+	}
+	
+	/**
+	 * Retourne la situation choisie par l'utilisateur parmi une liste proposée
+	 *  
+	 * @return String
+	 */
 	public static String entrerSituation() {
 		String sitution;
 		int exist=0;
@@ -53,11 +63,19 @@ public class Aidant extends Personne {
 		return sitution;
 	}
 	
-	public static int recherche(String[] liste, String lien) {
+	/**
+	 * Retourne 0 si mots n'est pas présent dans la liste 
+	 * Retourne 1 si mots est présent dans la liste 
+	 *  
+	 * @param liste
+	 * @param mot
+	 * @return int
+	 */
+	public static int recherche(String[] liste, String mots) {
 		int exist=0;
 		for (int i=0; i < liste.length; i++)
 	    {
-	      if(liste[i].equals(lien)){
+	      if(liste[i].equals(mots)){
 	        exist++;
 	      }
 	    }

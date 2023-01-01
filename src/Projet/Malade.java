@@ -28,6 +28,11 @@ public class Malade {
 		return typeHebergement;
 	}
 	
+	/**
+	 * Retourne le nom du malade saisi par l'utilisateur
+	 * 
+	 * @return String
+	 */
 	private static String entrerNom() {
 		String nom;
 		System.out.print("Entrer le nom du malade : ");
@@ -35,6 +40,12 @@ public class Malade {
 		return nom;
 	}
 	
+	/**
+	 * Retourne le lien de parenté entre l'aidant et le malade choisi
+	 * par l'utilisateur parmi une liste proposée
+	 *  
+	 * @return String
+	 */
 	private static String entrerLien() {
 		String lien;
 		int exist= 0;
@@ -56,6 +67,12 @@ public class Malade {
 		return lien;
 	}
 	
+	/**
+	 * Retourne le type d'hébergement du malade choisi par l'utilisateur 
+	 * parmi une liste proposée
+	 *  
+	 * @return String
+	 */
 	private static String entrerTypeHeber() {
 		String typeHeber;
 		int exist=0;
@@ -74,6 +91,17 @@ public class Malade {
 		return typeHeber;
 	}
 
+	/**
+	 * Retourne les attributs de la classe Malade sous forme de string.
+	 *
+	 * Exemple :
+	 * Nom du malade  : .....
+	 * Lien de parenté avec l'aidant : .....
+	 * Type d'hébergement : .....
+	 *
+	 * @param malade
+	 * @return String
+	 */
 	public static String decomposeMalade(Malade malade) {
 		String texte= " Nom du malade : "+malade.getNom()
 		+"\n Lien de parenté avec l'aidant : "+malade.getLienParente()
@@ -82,6 +110,10 @@ public class Malade {
 		return texte;
 	}
 		
+	/**
+	 * Création de l'objet malade et retour de celui-ci
+	 * @return Malade
+	 */
 	public static Malade creationMalade() {
 		Malade malade = new Malade(entrerNom(), entrerLien(), entrerTypeHeber());
 		return malade;		
